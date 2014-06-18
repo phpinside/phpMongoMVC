@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试名单列表-PHP培训/PHP高级培训/PHP专家培训/PHP深度培训</title>
+ 
+  <!-- Bootstrap core CSS -->
+  <link rel="shortcut icon" href="favicon.ico">
+  <link href="imgs/bootstrap.css" rel="stylesheet">
+  <link href="imgs/my.css" rel="stylesheet">
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js"></script>
+  <script src="http://cdn.bootcss.com/respond.js/1.3.0/respond.min.js"></script>
+  <![endif]-->
+  
+</head>
+<!-- NAVBAR
+================================================== -->
+<body>
+  
+ 
+      <table class="table table-hover table-bordered">
+        <thead>
+          <tr class="success">
+            <th width="10%">序号</th>
+            <th width="10%">姓名</th>
+            <th width="10%">手机</th>
+            <th width="10%">手机位置</th>
+            <th width="10%">邮箱</th>
+            <th width="10%">得分</th>
+            <th width="10%">提交时间</th>
+            <th width="10%">提交位置</th>
+            <th width="10%">状态</th>
+            <th width="10%">操作</th>
+          </tr>
+        </thead>
+        
+        <tbody>
+  <!--{loop $examlist $exam}-->
+          <tr>
+            <td>{$exam[id]}</td>
+            <td><strong>{$exam[truename]}</strong></td>
+            <td>{$exam[phone]}</td>
+            <td>{$exam[phoneLocation]}</td>
+            <td>{$exam[email]}</td>
+            <td>{$exam[score]}</td>
+             <td>{$exam['dateline']}<br><a href="http://www.ip138.com/ips138.asp?ip=$exam['ip']" target="_blank">{$exam['ip']}</a></td>
+            <td>{$exam[ipLocation]}</td>
+            <td>{if $exam['sendsms']}短信已发<br/>{/if}{if $exam['sendmail']}邮件已发{/if}</td>
+            <td>
+              <a href="?c=exam&a=upsms&id={$exam[id]}&sendsms=1">短信已发</a>&nbsp;&nbsp;&nbsp;
+              <a href="?c=exam&a=upsms&id={$exam[id]}&sendsms=0">短信未发</a>&nbsp;&nbsp;&nbsp;
+              <a href="?c=exam&a=upmail&id={$exam[id]}&sendmail=1">邮件已发</a>&nbsp;&nbsp;&nbsp;
+              <a href="?c=exam&a=upmail&id={$exam[id]}&sendmail=0">邮件未发</a>&nbsp;&nbsp;&nbsp;
+              <a href="?c=exam&a=remove&id={$exam[id]}">删除</a>
+            </td>
+          </tr>
+ <!--{/loop}-->
+ 
+
+ 
+         
+
+        </tbody>
+      </table>
+      <!-- FOOTER -->
+      <footer>
+            <p><div class="pull-left"><a href="contact.htm#about">关于我们</a>  ·  <a href="apply.htm">报名须知</a>  · <a href="contact.htm#contact">联系我们</a></div><div class="pull-right">© 2014 登高学院, Inc. ·京ICP备13022057号-2</div>  </p>
+      </footer>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.scrollUp.min.js"></script>
+
+    <script>
+    $(document).ready(function(){
+    $.scrollUp({
+    scrollName: 'scrollUp', // Element ID
+    topDistance: '300', // Distance from top before showing element (px)
+    topSpeed: 300, // Speed back to top (ms)
+    animation: 'fade', // Fade, slide, none
+    animationInSpeed: 200, // Animation in speed (ms)
+    animationOutSpeed: 200, // Animation out speed (ms)
+    scrollText: '', // Text for element
+    activeOverlay: false  // Set CSS color to display scrollUp active point, e.g '#00FFFF'
+    });
+    });
+    </script>
+  </body></html>
